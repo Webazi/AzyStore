@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bayar</title>
+</head>
+<body>
+    <form action="/totals" method="post">
+    <input type="text" name="id" placeholder="Nomer id Transaction" required>
+  
+    <input type="submit" value="bayar">
+</form>  
+
+<% for(let user of users) {%>
+    <strong>saldo anda:</strong><p><% const ss = parseFloat(user.saldo) %> <%= ss.toLocaleString() %></p>
+    <strong>Akun anda:</strong><p><%= user.na %></p>
+    <% } %>
+</body>
+</html>

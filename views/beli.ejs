@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembelian</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background: linear-gradient(to right, rgb(0, 33, 76), rgba(0, 49, 105, 0.774));
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            color: white;
+            border-radius: 12px;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to bottom, rgba(73, 152, 255, 0.622), rgba(0, 255, 42, 0.256));
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select, textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #ffffff34;
+            color: white;
+            text-shadow: 3px 2px 5px rgba(0, 0, 0, 0.3);
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        input::placeholder {
+            color: rgb(255, 255, 255);
+        }
+        option:hover {
+            background-color: #ffffff;
+            color: white;
+        }
+        option {
+            color: white;
+            background-color: #00d5ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Form Pembelian</h2>
+        <form action="/dalamproses" method="post" autocomplete="off">
+            <label for="asek">Nama:</label>
+            <input type="text" id="asek" name="asek" placeholder="Masukan nama" required>
+
+            <label for="growid">GrowID</label>
+            <input type="text" id="growid" name="growid" placeholder="Masukan GrowID" required>
+
+            <label for="address">Nama World</label>
+            <input id="address" name="World" placeholder="Masukan Nama Word Tujuan" required>
+
+            <label for="product">Jenis Lock</label>
+            <select id="product" name="product" required>
+                <option value="">--Pilih Jenis Lock--</option>
+                <option value="Diamond Lock">Diamond Lock</option>
+                <option value="Blue Gem Lock">Blue Gem Lock</option>
+            </select>
+
+            <p>harga: Rp. <strong id="price">0</strong></p>
+            <p style="display: none;" id="dbValue"><%= users.beli %></p> <!-- Contoh harga untuk Diamond Lock -->
+            <p style="display: none;" id="dbValueGem"><%= users.beli * 100 %></p> <!-- Contoh harga untuk Blue Gem Lock -->
+            <p>Result: Rp. <strong id="result">0</strong></p>
+            <input type="hidden" id="resultValue" name="total">
+            
+            <label for="inputValue">Jumlah:</label>
+            <input type="number" id="inputValue" name="quantity" placeholder="Masukan jumlah" required>
+
+            <label for="wa">Nomor WA</label>
+            <input id="wa" name="wa" type="number" placeholder="Masukan nomor WA" required>
+
+            <label for="payment">Metode Pembayaran:</label>
+            <select id="payment" name="payment" required>
+                <option value="">--Pilih Metode Pembayaran--</option>
+                <option value="credit_card">Kartu Kredit</option>
+                <option value="bank_transfer">Transfer Bank</option>
+                <option value="paypal">PayPal</option>
+            </select>
+
+            <input type="hidden" id="transaction-id" name="transaction_id">
+
+            <button type="submit">Beli Sekarang</button>
+        </form>
+    </div>
+
+    <script>
+        function generateRandomID(length) {
+            let randomID = '';
+            const characters = '0123456789abcdefghijklmnopqrstuvwxyz';
+            for (let i = 0; i < length; i++) {
+                randomID += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return randomID;
+        }
+
+        document.getElementById('transaction-id').value = generateRandomID(15);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const dbValue = parseFloat(document.getElementById('dbValue').textContent);
+            const dbValueGem = parseFloat(document.getElementById('dbValueGem').textContent);
+            const inputValue = document.getElementById('inputValue');
+            const result = document.getElementById('result');
+            const product = document.getElementById('product');
+            const price = document.getElementById('price');
+            let selectedValue = 0;
+
+            product.addEventListener('change', function() {
+                if (product.value === "Diamond Lock") {
+                    selectedValue = dbValue;
+                    price.textContent = dbValue.toLocaleString('en-US');
+                } else if (product.value === "Blue Gem Lock") {
+                    selectedValue = dbValueGem;
+                    price.textContent = dbValueGem.toLocaleString('en-US');
+                } else {
+                    selectedValue = 0;
+                    price.textContent = '0';
+                }
+                calculateResult();
+            });
+
+            inputValue.addEventListener('input', function() {
+                calculateResult();
+            });
+
+            function calculateResult() {
+                const inputVal = parseFloat(inputValue.value) || 0;
+                const total = inputVal * selectedValue;
+                result.textContent = total.toLocaleString('id-ID');
+                document.getElementById('resultValue').value = total;
+            }
+        });
+    </script>
+</body>
+</html>

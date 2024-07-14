@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>invoice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background: linear-gradient(to right, rgb(0, 33, 76), rgba(0, 49, 105, 0.774));
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            color: white;
+            border-radius: 12px;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to bottom, rgba(73, 152, 255, 0.622), rgba(0, 255, 42, 0.256));
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        input,
+        select,
+        textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #ffffff34;
+            color: white;
+            text-shadow: 3px 2px 5px rgba(0, 0, 0, 0.3);
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        input::placeholder {
+            color: rgb(255, 255, 255);
+        }
+        option:hover {
+            background-color: #ffffff;
+            color: white;
+        }
+        option {
+            color: white;
+            background-color: #00d5ff;
+        }
+        .pos {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+        .pending {
+            background-color: tomato;
+            padding: 10px;
+            display: flex;
+            width: 25%;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .success {
+            background-color: rgb(26, 175, 0);
+            padding: 10px;
+            width: 25%;
+            text-align: center;
+            border-radius: 5px;
+        }
+        li {
+            list-style: none;
+        }
+        .gg {
+            display: flex;
+            width: 50px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        a {
+            display: block;
+            text-decoration: none;
+            font-size: 100%;
+            color: black;
+        }
+        .status{
+            width: 20%;
+            padding: 5px;
+        }
+        svg{
+            width: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <li><a href="/"><div class="gg"><svg width="42px" height="42" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <style>.cls-1{fill:none;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:40px;}</style>
+            </defs>
+            <g data-name="Layer 3" id="Layer_3">
+                <g data-name="E416, back, Media, media player, multimedia, player" id="E416_back_Media_media_player_multimedia_player">
+                    <circle class="cls-1" cx="256" cy="256" r=""/>
+                    <polyline class="cls-1" points="333.82 100.37 178.18 256 333.82 411.63"/>
+                </g>
+            </g>
+        </svg></div></a></li>
+        <h2>Invoice Pembayaran</h2>
+        <% for (let user of users) { %>
+            <div>
+                <p><strong>Nama:</strong> <%= user.nama %></p>
+                <p><strong>GrowID:</strong> <%= user.growID %></p>
+                <p><strong>Nama World:</strong> <%= user.world %></p>
+                <p><strong>Jenis Lock:</strong> <%= user.lockk %></p>
+                <p><strong>Jumlah:</strong> <%= user.jumlah %></p>
+                <p><strong>Metode Pembayaran:</strong> <%= user.metode %></p>
+                <p><strong>ID Transaction:</strong> <%= user.id_trans %></p>
+                <p class="status" data-status="<%= user.bayar %>"><strong><%= user.bayar %></strong></p>
+                <h2><strong>Total: Rp. </strong> <% const harga = user.total %> <%= harga.toLocaleString('en-US') %></h2>
+                <div class="pos"><div class="<%= user.status %>"><p><strong>Status:</strong> <%= user.status %></p></div></div>
+            </div>
+        <% } %>
+        <%- data %>
+    </div>
+     
+    <script>
+        document.querySelectorAll('.status').forEach(function(statusElement) {
+            if (statusElement.getAttribute('data-status') === 'belum di bayar') {
+                statusElement.style.backgroundColor = 'red';
+            } else if (statusElement.getAttribute('data-status') === 'udah di bayar') {
+                statusElement.style.backgroundColor = 'green';
+            }
+        });
+    </script>
+</body>
+</html>

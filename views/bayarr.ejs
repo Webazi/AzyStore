@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bayar</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Form Pembelian</h2>
+        <% for (let user of users) { %>
+            <p style="display: none;" id="walawe"> <%= user.total %> </p>
+            <p id="helo"></p>
+            <p id="nama"></p>
+            <p id="nama1"></p>
+            <p id="nama2"></p>
+            <p id="nama3"><%= user.na %></p>
+            <form action="/bayarkan" method="post">
+                <p class="hidden" style="display: none;" id="op"><%= user.id_trans %></p>
+                <p class="hidden" style="display: none;" id="ep"><%= user.saldo %></p>
+            <% } %>
+            <input type="hidden" id="wew" name="id">
+            <input type="submit" value="Bayar">
+            <input type="hidden" name="saldo" id="wq">
+            <input type="hidden" name="ttl" id="welo">
+            <input type="hidden" name="nam" id="names">
+            <input type="hidden" name="namw"  id="akhir" >
+            
+        </form>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dbV = document.getElementById('op').textContent;
+            const dbVC = document.getElementById('ep').textContent;
+            const dbVB = document.getElementById('walawe').textContent;
+            const dbVK = document.getElementById('nama3').textContent;
+
+            document.getElementById('wew').value = dbV;
+            document.getElementById('wq').value = dbVC;
+            document.getElementById('welo').value = dbVB;
+            document.getElementById('names').value = dbVK;
+
+            document.getElementById('helo').textContent =dbV
+            document.getElementById('nama1').textContent = parseFloat(dbVB).toLocaleString('en-US');
+            document.getElementById('nama').textContent = dbVK
+            document.getElementById('nama2').textContent = parseFloat(dbVC).toLocaleString('en-US');
+
+            const saldoAkhir = (parseFloat(dbVC) - parseFloat(dbVB));
+            console.log(saldoAkhir)
+            document.getElementById('akhir').value = saldoAkhir
+            console.log(parseFloat(dbVB).toLocaleString('en-US'));
+           
+        });
+    </script>
+</body>
+</html>
+
+</body>
+</html>
