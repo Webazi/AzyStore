@@ -6,7 +6,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" type="text/css" href="/style.css">
 
-   <title>AzyStore</title>
+   <title>DiaacaStore</title>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
       <li><a href="/cari">Cek invoice</a></li>
       <li><a class="active" href="#cara">Cara </a></li>
       <li class="logos"><a>
-            <h4>AzyStore</h4>
+            <h4>DiaacaStore</h4>
          </a></li>
    </ul>
 
@@ -24,78 +24,47 @@
       <div class="conten">
       </div>  
       <!-- untuk isi pemilihan jual/beli -->
-      <div class="c">
+      
+      <div class="cd">
          <div class="dd">
             <div class="d">
-               <h1>Diamond Lock</h1>
+               <h1>Mobile Legends</h1>
             </div>
             <% for (let user of users) {%>
                <div class="wrapp">
-                  <div class="jual">
-                     <h1>buy</h1>
-                  </div>
-                  <div class="harga">
-                     <h2><% const juals = parseFloat(user.jual) %>
-                        Rp. <%= juals.toLocaleString()%>
-                     </h2>
-                  </div>
-
-                  <a class="link" href="/jual"><div class="btn">
-                    <h3>sell</h3>
-                  </div></a>
-                  <div class="jual">
-                     <h1>sell</h1>
-                  </div>
-                  <div class="harga">
-                     <h2><% const belis = parseFloat(user.beli) %>
-                        Rp. <%= belis.toLocaleString()%>
-                  </div>
-
+                 
+                  
                   <a class="link" href="/beli"><div class="btn">
-                     <h3>buy</h3>
-                  </div></a>
+                     <h3>beli</h3>
+                   </div></a>
+                  
+                 
+                  
                </div>
                <% } %>
          </div>
       </div>
       <!-- untuk isi pemilihan jual/beli blue gem lock-->
-      <div class="cd">
+      <div class="c">
          <div class="dd">
             <div class="d">
-               <h1>Blue Gem Lock</h1>
+               <h1>FreeFire</h1>
             </div>
             <% for (let user of users) {%>
                <div class="wrapp">
-                  <div class="jual">
-                     <h1>buy</h1>
-                  </div>
-                  <div class="harga">
-                     <% const hargas = parseFloat(user.jual)* 100 %>
-                     <h2>
-                        Rp.<%= hargas.toLocaleString() %>
-                        
-                     </h2>
-                  </div>
-
-                  <a class="link" href="/jual"><div class="btn">
-                     <h3>sell</h3>
-                   </div></a>
-                  <div class="jual">
-                     <h1>buy</h1>
-                  </div>
-                  <div class="harga">
-                     <h2><% const belis = parseFloat(user.beli) * 100 %>
-                        Rp. <%= belis.toLocaleString()%>
-                  </div>
-
+                 
+                  
                   <a class="link" href="/beli"><div class="btn">
-                     <h3>sell</h3>
+                     <h3>beli</h3>
                    </div></a>
+                  
+                 
+                  
                </div>
                <% } %>
          </div>
       </div>
-      <div class="ipsum" id="cara"><h1>Cara membeli di AzyStore</h1>
+      <div class="ipsum" id="cara"><h1>Cara membeli di DiaacaStore</h1>
       <div class="syarat"></h1>
 
          <div class="cara"><h1> Pilih item DL/BGL</h1> <p> bgl itu (100dls), lalu isi <br> form pembelian/bayaran dan semuanya harus di isi. <br> Untuk menjual juga sama caranya.</p></div>

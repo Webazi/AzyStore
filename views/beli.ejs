@@ -73,23 +73,23 @@
             <label for="asek">Nama:</label>
             <input type="text" id="asek" name="asek" placeholder="Masukan nama" required>
 
-            <label for="growid">GrowID</label>
+            <label for="growid">ID ml</label>
             <input type="text" id="growid" name="growid" placeholder="Masukan GrowID" required>
 
-            <label for="address">Nama World</label>
+            <label for="address">ID server</label>
             <input id="address" name="World" placeholder="Masukan Nama Word Tujuan" required>
 
-            <label for="product">Jenis Lock</label>
+            <label for="product">Jumlah diamond</label>
             <select id="product" name="product" required>
-                <option value="">--Pilih Jenis Lock--</option>
-                <option value="Diamond Lock">Diamond Lock</option>
-                <option value="Blue Gem Lock">Blue Gem Lock</option>
+                <option value="">--Pilih Jenis--</option>
+                <option value="Diamond Lock">diamond ML</option>
+                <option value="Blue Gem Lock">Diamond FF</option>
             </select>
 
             <p>harga: Rp. <strong id="price">0</strong></p>
             <p style="display: none;" id="dbValue"><%= users.beli %></p> <!-- Contoh harga untuk Diamond Lock -->
             <p style="display: none;" id="dbValueGem"><%= users.beli * 100 %></p> <!-- Contoh harga untuk Blue Gem Lock -->
-            <p>Result: Rp. <strong id="result">0</strong></p>
+            <p>total: Rp. <strong id="result">0</strong></p>
             <input type="hidden" id="resultValue" name="total">
             
             <label for="inputValue">Jumlah:</label>

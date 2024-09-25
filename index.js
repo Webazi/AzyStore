@@ -5,7 +5,7 @@ const path = require('path');
 const cookieSession = require('cookie-session')
 const BodyParser = require("body-parser")
 const { error } = require('console');
-const port = 2300
+const port = 2500
 const mysql = require('mysql');
 const { stat } = require('fs');
 const { type } = require('express/lib/response');
@@ -15,7 +15,7 @@ app.use(BodyParser.urlencoded({ extended: true }));
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "",
+  password: "password_baru",
   database: "uc"
 })
 app.use(cookieSession({

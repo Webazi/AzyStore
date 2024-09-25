@@ -24,19 +24,24 @@ background-color: #222325;
 
 }
 .c{
+    
     color: white;
+    
+    
+    background-image: url(https://logospng.org/download/freefire/logo-freefire-1536.png);
     background-color: #ffffff98;
-    background-image: url(./img/Unt.jpeg);
+    opacity: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     border-radius: 7%;padding: 10%;
     width: 350px;
     height: 41vh;
-    background-repeat: no-repeat;
     justify-content: center;
-    background-position: center;
-    background-size: cover;
     box-shadow: 0 0 5px #1195d3, 0 0 4px #1195d3,
     0 0 15px #1195d3, 0 0 20px #1195d3, 0 0 25px #1195d3,
      0 0 10px #1195d3, 0 0 15px #1195d3, 0 0 10px #ffffff;
+
 
 }
 
@@ -44,7 +49,7 @@ background-color: #222325;
     color: white;
     
     
-    background-image: url(./img/OIP.jpeg);
+    background-image: url(https://2.bp.blogspot.com/-9RBSDbhBi-w/Wbyks_NFPcI/AAAAAAAADDA/OPBx_IILLF0I_Y8moVethnY76UVD5rgFACLcBGAs/s1600/ML-logo_justnamedanton.png);
     background-color: #ffffff98;
     opacity: 90%;
     background-repeat: no-repeat;
@@ -64,7 +69,9 @@ background-color: #222325;
     border-radius: 10%;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 30px;
+    height: 50vh;
     
 
 }
@@ -78,6 +85,7 @@ background-color: #222325;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .btn {
     background-color: #00c3ff;
@@ -239,8 +247,14 @@ ul {
     }
     
     .cd{
-        width: 330px;
-        height: 27vh;
+        background-color: #ffffff46;
+
+    padding: 14%;
+    width: 250px;
+    height: 25vh;
+    box-shadow: 0 0 5px #1195d3, 0 0 4px #1195d3,
+     0 0 15px #1195d3, 0 0 20px #1195d3, 0 0 25px #1195d3,
+      0 0 10px #1195d3, 0 0 15px #1195d3, 0 0 10px #ffffff;
     }
 }
 
@@ -284,7 +298,7 @@ ul {
             .c{
                 color: white;
                 background-color: #ffffff98;
-                background-image: url(./img/Unt.jpeg);
+                background-image: url(https://logospng.org/download/freefire/logo-freefire-1536.png);
                 border-radius: 7%;padding: 10%;
                 width: 350px;
                 height: 41vh;
@@ -301,7 +315,7 @@ ul {
             .cd{
                 color: white;
                 background-color: #ffffff98;
-                background-image: url(./img/OIP.jpeg);
+                background-image: url(https://wallpapercave.com/wp/wp4302550.jpg);
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: cover;
@@ -342,6 +356,15 @@ ul {
         .cd{
             width: 280px;
             height: 77vh;
+            background-color: #ffffff46;
+    
+        padding: 14%;
+        width: 250px;
+        height: 70vh;
+        box-shadow: 0 0 5px #1195d3, 0 0 4px #1195d3,
+         0 0 15px #1195d3, 0 0 20px #1195d3, 0 0 25px #1195d3,
+          0 0 10px #1195d3, 0 0 15px #1195d3, 0 0 10px #ffffff;
+    
         }
     
         li a {
@@ -401,9 +424,15 @@ ul {
     
         }
         
-        .cd{
-            width: 280px;
-            height: 78vh;
+        .cd{background-color: #ffffff46;
+    
+            padding: 14%;
+            width: 250px;
+            height: 72vh;
+            box-shadow: 0 0 5px #1195d3, 0 0 4px #1195d3,
+             0 0 15px #1195d3, 0 0 20px #1195d3, 0 0 25px #1195d3,
+              0 0 10px #1195d3, 0 0 15px #1195d3, 0 0 10px #ffffff;
+        
         }
     
         li a {
