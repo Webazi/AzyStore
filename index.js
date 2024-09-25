@@ -15,7 +15,7 @@ app.use(BodyParser.urlencoded({ extended: true }));
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "password_baru",
+  password: "Aji19027*",
   database: "uc"
 })
 app.use(cookieSession({

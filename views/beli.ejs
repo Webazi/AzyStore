@@ -73,7 +73,7 @@
             <label for="asek">Nama:</label>
             <input type="text" id="asek" name="asek" placeholder="Masukan nama" required>
 
-            <label for="growid">ID ml</label>
+            <label for="growid">ID Game</label>
             <input type="text" id="growid" name="growid" placeholder="Masukan GrowID" required>
 
             <label for="address">ID server</label>
@@ -82,13 +82,13 @@
             <label for="product">Jumlah diamond</label>
             <select id="product" name="product" required>
                 <option value="">--Pilih Jenis--</option>
-                <option value="Diamond Lock">diamond ML</option>
-                <option value="Blue Gem Lock">Diamond FF</option>
+                <option value="diamond ML">diamond ML</option>
+                <option value="Diamond FF">Diamond FF</option>
             </select>
 
             <p>harga: Rp. <strong id="price">0</strong></p>
             <p style="display: none;" id="dbValue"><%= users.beli %></p> <!-- Contoh harga untuk Diamond Lock -->
-            <p style="display: none;" id="dbValueGem"><%= users.beli * 100 %></p> <!-- Contoh harga untuk Blue Gem Lock -->
+            <p style="display: none;" id="dbValueGem"><%= users.beli * 1.2 %></p> <!-- Contoh harga untuk Blue Gem Lock -->
             <p>total: Rp. <strong id="result">0</strong></p>
             <input type="hidden" id="resultValue" name="total">
             
@@ -134,10 +134,10 @@
             let selectedValue = 0;
 
             product.addEventListener('change', function() {
-                if (product.value === "Diamond Lock") {
+                if (product.value === "diamond ML") {
                     selectedValue = dbValue;
                     price.textContent = dbValue.toLocaleString('en-US');
-                } else if (product.value === "Blue Gem Lock") {
+                } else if (product.value === "Diamond FF") {
                     selectedValue = dbValueGem;
                     price.textContent = dbValueGem.toLocaleString('en-US');
                 } else {
