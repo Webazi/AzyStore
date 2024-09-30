@@ -15,7 +15,7 @@ app.use(BodyParser.urlencoded({ extended: true }));
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "Aji19027*",
+  password: "password_baru",
   database: "uc"
 })
 app.use(cookieSession({
@@ -114,7 +114,9 @@ app.post('/dalamproses', (req, res) => {
 app.get('/invoice', (req, res) => {
   const id = req.query.id;
   const sql = 'SELECT * FROM transaksi WHERE id_trans LIKE ?';
-  let data =  `https://876jxcb3-2300.asse.devtunnels.ms/bayarr?id=${encodeURIComponent(id)}`
+  const hostname = req.hostname
+  const protocol = req.protocol
+  let data =  `${protocol}://${hostname}/bayarr?id=${encodeURIComponent(id)}`
   
   qr.toString(data,{type:"svg"}, function(err,data){
   if(err) return console.log(error)
